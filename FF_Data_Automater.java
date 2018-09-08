@@ -20,6 +20,7 @@ public class FF_Data_Automater {
             // getting input from txt file
             int week = txtScanner.nextInt();
             ps2.println("Week: " + week);
+            ps2.println();
             // scores and records for each team
             double score, skip;
             int wins, losses, ties;
@@ -30,14 +31,15 @@ public class FF_Data_Automater {
                     // odd teams
                     if (i % 2 != 0) {
                         score = txtScanner.nextDouble();
-                        ps2.println("Score: " + score);
                         // skip projected score
                         skip = txtScanner.nextDouble();
-                        team = txtScanner.nextLine();
+                        txtScanner.nextLine();
                         team = txtScanner.nextLine();
                         ps2.println("Team: " + team);
+                        ps2.println("Score: " + score);
                         record = txtScanner.nextLine();
                         ps2.println("Record: " + record);
+                        ps2.println();
                         continue;
                     }
 
@@ -46,7 +48,6 @@ public class FF_Data_Automater {
                         // skip logo
                         txtScanner.nextLine();
                         score = txtScanner.nextDouble();
-                        ps2.println("Score: " + score);
                         // skip projected score
                         skip = txtScanner.nextDouble();
                         // skip logo
@@ -54,8 +55,10 @@ public class FF_Data_Automater {
                         txtScanner.nextLine();
                         team = txtScanner.nextLine();
                         ps2.println("Team: " + team);
+                        ps2.println("Score: " + score);
                         record = txtScanner.nextLine();
                         ps2.println("Record: " + record);
+                        ps2.println();
                         continue;
                     }
                 }
