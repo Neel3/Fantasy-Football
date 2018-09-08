@@ -8,6 +8,8 @@
 
 -Change team names to people names
 
+-Add wins, losses, ties (from record input)
+
 -Export (excel)
 
 -Folders (src, bin)
