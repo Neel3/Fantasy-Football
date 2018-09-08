@@ -8,3 +8,4 @@
 
 -Export (excel)
 
+-Folders (src, bin)
