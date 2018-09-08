@@ -19,42 +19,44 @@ public class FF_Data_Automater {
                 double score, skip;
                 int wins, losses, ties;
                 String team, record;
-                for (int i = 1; i < 12; i ++) {
-                    System.out.println("i: " + i);
-                    System.out.println("i % 2: " + (i % 2));
+                try {
+                    for (int i = 1; i < 12; i++) {
+//                    System.out.println("i: " + i);
+//                    System.out.println("i % 2: " + (i % 2));
 
-                    // odd teams
-                    if (i % 2 != 0) {
-                        System.out.println("Method odd");
-                        score = txtScanner.nextDouble();
-                        System.out.println("Score: " + score);
-                        // skip projected score
-                        skip = txtScanner.nextDouble();
-                        team = txtScanner.nextLine();
-                        team = txtScanner.nextLine();
-                        System.out.println("Team: " + team);
-                        record = txtScanner.nextLine();
-                        System.out.println("Record: " + record);
-                        continue;
-                    }
+                        // odd teams
+                        if (i % 2 != 0) {
+//                        System.out.println("Method odd");
+                            score = txtScanner.nextDouble();
+                            System.out.println("Score: " + score);
+                            // skip projected score
+                            skip = txtScanner.nextDouble();
+                            team = txtScanner.nextLine();
+                            team = txtScanner.nextLine();
+                            System.out.println("Team: " + team);
+                            record = txtScanner.nextLine();
+                            System.out.println("Record: " + record);
+                            continue;
+                        }
 
-                    // even teams
-                    if (i % 2 == 0) {
-                        System.out.println("Method even");
-                        // skip logo
-                        txtScanner.nextLine();
-                        score = txtScanner.nextDouble();
-                        System.out.println("Score: " + score);
-                        // skip projected score
-                        skip = txtScanner.nextDouble();
-                        // skip logo
-                        txtScanner.nextLine();
-                        txtScanner.nextLine();
-                        team = txtScanner.nextLine();
-                        System.out.println("Team: " + team);
-                        record = txtScanner.nextLine();
-                        System.out.println("Record: " + record);
-                        continue;
+                        // even teams
+                        if (i % 2 == 0) {
+//                        System.out.println("Method even");
+                            // skip logo
+                            txtScanner.nextLine();
+                            score = txtScanner.nextDouble();
+                            System.out.println("Score: " + score);
+                            // skip projected score
+                            skip = txtScanner.nextDouble();
+                            // skip logo
+                            txtScanner.nextLine();
+                            txtScanner.nextLine();
+                            team = txtScanner.nextLine();
+                            System.out.println("Team: " + team);
+                            record = txtScanner.nextLine();
+                            System.out.println("Record: " + record);
+                            continue;
+                        }
                     }
 //
 //                    // even teams
@@ -105,12 +107,15 @@ public class FF_Data_Automater {
 ////                    txtScanner.skip("-");
 ////                    ties = txtScanner.nextInt();
 ////                    System.out.println("Ties: " + ties);
-
+                } catch (Exception e1) {
+//                    e1.printStackTrace();
                 }
 
-            } catch (FileNotFoundException e) {
+
+
+            } catch (FileNotFoundException e2) {
                 System.out.println("File not found.");
-                e.printStackTrace();
+                e2.printStackTrace();
             }
 
         }
