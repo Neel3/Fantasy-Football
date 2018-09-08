@@ -22,47 +22,47 @@ public class FF_Data_Automater {
 
             // getting input from txt file
             int week = txtScanner.nextInt();
-            System.out.println("Week: " + week);
+            ps2.println("Week: " + week);
             // scores and records for each team
             double score, skip;
             int wins, losses, ties;
             String team, record;
             try {
                 for (int i = 1; i < 12; i++) {
-//                    System.out.println("i: " + i);
-//                    System.out.println("i % 2: " + (i % 2));
+//                    ps2.println("i: " + i);
+//                    ps2.println("i % 2: " + (i % 2));
 
                     // odd teams
                     if (i % 2 != 0) {
-//                        System.out.println("Method odd");
+//                        ps2.println("Method odd");
                         score = txtScanner.nextDouble();
-                        System.out.println("Score: " + score);
+                        ps2.println("Score: " + score);
                         // skip projected score
                         skip = txtScanner.nextDouble();
                         team = txtScanner.nextLine();
                         team = txtScanner.nextLine();
-                        System.out.println("Team: " + team);
+                        ps2.println("Team: " + team);
                         record = txtScanner.nextLine();
-                        System.out.println("Record: " + record);
+                        ps2.println("Record: " + record);
                         continue;
                     }
 
                     // even teams
                     if (i % 2 == 0) {
-//                        System.out.println("Method even");
+//                        ps2.println("Method even");
                         // skip logo
                         txtScanner.nextLine();
                         score = txtScanner.nextDouble();
-                        System.out.println("Score: " + score);
+                        ps2.println("Score: " + score);
                         // skip projected score
                         skip = txtScanner.nextDouble();
                         // skip logo
                         txtScanner.nextLine();
                         txtScanner.nextLine();
                         team = txtScanner.nextLine();
-                        System.out.println("Team: " + team);
+                        ps2.println("Team: " + team);
                         record = txtScanner.nextLine();
-                        System.out.println("Record: " + record);
+                        ps2.println("Record: " + record);
                         continue;
                     }
                 }
@@ -75,13 +75,13 @@ public class FF_Data_Automater {
 //                        // skip logo
 //                        txtScanner.nextLine();
 //                        score = txtScanner.nextDouble();
-//                        System.out.println("Score: " + score);
+//                        ps2.println("Score: " + score);
 //                        // skip projected score
 //                        skip = txtScanner.nextDouble();
 //                        team = txtScanner.nextLine();
-//                        System.out.println("Team: " + team);
+//                        ps2.println("Team: " + team);
 //                        record = txtScanner.nextLine();
-//                        System.out.println("Record: " + record);
+//                        ps2.println("Record: " + record);
 //                        continue;
 //                    }
 //
@@ -91,33 +91,33 @@ public class FF_Data_Automater {
 //                    if (txtScanner.hasNext("logo")) {
 //                        txtScanner.nextLine();
 //                    }
-//                    System.out.println("Score: " + score);
+//                    ps2.println("Score: " + score);
 //                        // skip projected score
 //                    skip = txtScanner.nextDouble();
 //                    txtScanner.nextLine();
 ////                    txtScanner.skip("logo");
 ////                    txtScanner.nextLine();
 //                    team = txtScanner.nextLine();
-//                    System.out.println("Team: " + team);
+//                    ps2.println("Team: " + team);
 ////                        //testing error
-////                    System.out.println("nextInt: " + txtScanner.hasNextInt());
-////                    System.out.println("next: " + txtScanner.hasNext());
-////                    System.out.println("nextLine: " + txtScanner.hasNextLine());
-////                    System.out.println("\\n: " + txtScanner.hasNext("\n"));
-////                    System.out.println("printNext: " + txtScanner.next());
-////                    System.out.println("printNextLine: " + txtScanner.nextLine());
+////                    ps2.println("nextInt: " + txtScanner.hasNextInt());
+////                    ps2.println("next: " + txtScanner.hasNext());
+////                    ps2.println("nextLine: " + txtScanner.hasNextLine());
+////                    ps2.println("\\n: " + txtScanner.hasNext("\n"));
+////                    ps2.println("printNext: " + txtScanner.next());
+////                    ps2.println("printNextLine: " + txtScanner.nextLine());
 //                    record = txtScanner.nextLine();
-//                    System.out.println("Record: " + record);
+//                    ps2.println("Record: " + record);
 //                    txtScanner.nextLine();
 ////                    txtScanner.skip("logo");
 ////                    wins = txtScanner.nextInt();
-////                    System.out.println("Wins: " + wins);
+////                    ps2.println("Wins: " + wins);
 ////                    txtScanner.skip("-");
 ////                    losses = txtScanner.nextInt();
-////                    System.out.println("Losses: " + losses);
+////                    ps2.println("Losses: " + losses);
 ////                    txtScanner.skip("-");
 ////                    ties = txtScanner.nextInt();
-////                    System.out.println("Ties: " + ties);
+////                    ps2.println("Ties: " + ties);
             } catch (Exception e1) {
 //                    e1.printStackTrace();
             }
