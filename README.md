@@ -6,6 +6,8 @@
 
 /Export (txt file)
 
+-Change team names to people names
+
 -Export (excel)
 
 -Folders (src, bin)
