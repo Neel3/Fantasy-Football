@@ -12,4 +12,4 @@
 
 -Folders (src, bin)
 
--Example screenshots (import data, export excel file)
+-Example screenshots (import data, export txt file, export excel file)
