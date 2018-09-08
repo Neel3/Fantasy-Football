@@ -19,32 +19,86 @@ public class FF_Data_Automater {
                 double score, skip;
                 int wins, losses, ties;
                 String team, record;
-                for (int i = 0; i < 11; i ++) {
-                    score = txtScanner.nextDouble();
-                    System.out.println("Score: " + score);
+                for (int i = 1; i < 12; i ++) {
+
+                    // odd teams
+                    if (i % 2 != 0) {
+                        score = txtScanner.nextDouble();
+                        System.out.println("Score: " + score);
                         // skip projected score
-                    skip = txtScanner.nextDouble();
-                    team = txtScanner.next();
-                    System.out.println("Team: " + team);
-//                        //testing error
-//                    System.out.println("nextInt: " + txtScanner.hasNextInt());
-//                    System.out.println("next: " + txtScanner.hasNext());
-//                    System.out.println("nextLine: " + txtScanner.hasNextLine());
-//                    System.out.println("\\n: " + txtScanner.hasNext("\n"));
-//                    System.out.println("printNext: " + txtScanner.next());
-//                    System.out.println("printNextLine: " + txtScanner.nextLine());
-                    record = txtScanner.next();
-                    System.out.println("Record: " + record);
-//                    wins = txtScanner.nextInt();
-//                    System.out.println("Wins: " + wins);
-//                    txtScanner.skip("-");
-//                    losses = txtScanner.nextInt();
-//                    System.out.println("Losses: " + losses);
-//                    txtScanner.skip("-");
-//                    ties = txtScanner.nextInt();
-//                    System.out.println("Ties: " + ties);
+                        skip = txtScanner.nextDouble();
+                        team = txtScanner.nextLine();
+                        System.out.println("Team: " + team);
+                        record = txtScanner.nextLine();
+                        System.out.println("Record: " + record);
+                        continue;
+                    }
 
-
+                    // even teams
+                    if (i % 2 == 0) {
+                        // skip logo
+                        txtScanner.nextLine();
+                        score = txtScanner.nextDouble();
+                        System.out.println("Score: " + score);
+                        // skip projected score
+                        skip = txtScanner.nextDouble();
+                        // skip logo
+                        txtScanner.nextLine();
+                        team = txtScanner.nextLine();
+                        System.out.println("Team: " + team);
+                        record = txtScanner.nextLine();
+                        System.out.println("Record: " + record);
+                        continue;
+                    }
+//
+//                    // even teams
+//                    if ((i % 2 == 0)) {
+//                        // skip logo
+//                        txtScanner.nextLine();
+//                        score = txtScanner.nextDouble();
+//                        System.out.println("Score: " + score);
+//                        // skip projected score
+//                        skip = txtScanner.nextDouble();
+//                        team = txtScanner.nextLine();
+//                        System.out.println("Team: " + team);
+//                        record = txtScanner.nextLine();
+//                        System.out.println("Record: " + record);
+//                        continue;
+//                    }
+//
+//
+//
+//                    score = txtScanner.nextDouble();
+//                    if (txtScanner.hasNext("logo")) {
+//                        txtScanner.nextLine();
+//                    }
+//                    System.out.println("Score: " + score);
+//                        // skip projected score
+//                    skip = txtScanner.nextDouble();
+//                    txtScanner.nextLine();
+////                    txtScanner.skip("logo");
+////                    txtScanner.nextLine();
+//                    team = txtScanner.nextLine();
+//                    System.out.println("Team: " + team);
+////                        //testing error
+////                    System.out.println("nextInt: " + txtScanner.hasNextInt());
+////                    System.out.println("next: " + txtScanner.hasNext());
+////                    System.out.println("nextLine: " + txtScanner.hasNextLine());
+////                    System.out.println("\\n: " + txtScanner.hasNext("\n"));
+////                    System.out.println("printNext: " + txtScanner.next());
+////                    System.out.println("printNextLine: " + txtScanner.nextLine());
+//                    record = txtScanner.nextLine();
+//                    System.out.println("Record: " + record);
+//                    txtScanner.nextLine();
+////                    txtScanner.skip("logo");
+////                    wins = txtScanner.nextInt();
+////                    System.out.println("Wins: " + wins);
+////                    txtScanner.skip("-");
+////                    losses = txtScanner.nextInt();
+////                    System.out.println("Losses: " + losses);
+////                    txtScanner.skip("-");
+////                    ties = txtScanner.nextInt();
+////                    System.out.println("Ties: " + ties);
 
                 }
 
@@ -52,10 +106,6 @@ public class FF_Data_Automater {
                 System.out.println("File not found.");
                 e.printStackTrace();
             }
-
-
-
-
 
         }
 }
