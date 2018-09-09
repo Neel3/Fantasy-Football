@@ -83,10 +83,9 @@ public class FF_Data_Automater {
     }
 
     /**
-     *  Imports a local HTML file, containing all of the team names and real names, and
-     *  filers/sorts the data using JSoup. The result is exported into a text document.
+     *  Imports team names and scores from an HTML file and prints to output.
      */
-    public void teamToRealName() {
+    public void outputScores() {
 
         // input HTML file
         File names = new File("D:\\Fantasy Football\\Analytics\\2018\\Cousins\\Season\\Data" +
@@ -97,7 +96,7 @@ public class FF_Data_Automater {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
+
         // Store team ID into arrays
         Elements x4 = doc1.getElementsByClass("F-link");
 //        System.out.println("x4: " + x4);
@@ -123,6 +122,53 @@ public class FF_Data_Automater {
 //            if (x8.substring(36,37).)
         }
 
+        // Change team ID into real name
+        String realNames[] = new String[10];
+        for (int i = 0; i < 10; i++) {
+            switch (teamID[i]) {
+                case 1: {
+                    realNames[i] = "Sagar";
+                    break;
+                }
+                case 2: {
+                    realNames[i] = "Cheerag";
+                    break;
+                }
+                case 3: {
+                    realNames[i] = "Rachna";
+                    break;
+                }
+                case 4: {
+                    realNames[i] = "Kunaal";
+                    break;
+                }
+                case 5: {
+                    realNames[i] = "Pooja";
+                    break;
+                }
+                case 6: {
+                    realNames[i] = "Nimesh";
+                    break;
+                }
+                case 7: {
+                    realNames[i] = "Kamal";
+                    break;
+                }
+                case 8: {
+                    realNames[i] = "Neel";
+                    break;
+                }
+                case 9: {
+                    realNames[i] = "Deep";
+                    break;
+                }
+                case 10: {
+                    realNames[i] = "Dhruv";
+                    break;
+                }
+            }
+        }
+
         //Scores
         Elements x1 = doc1.select("div.Fz-lg");
         String x2 = x1.select("div.Fz-lg").text();
@@ -134,25 +180,15 @@ public class FF_Data_Automater {
         for (int i = 0; i < 4; i++) {
             x3.next();
         }
-        // print scores
+        // store scores into array
+        double scoreArray[] = new double[10];
         for (int i = 0; i < 10; i++) {
+            scoreArray[i] = x3.nextDouble();
 //            System.out.println("[" + i + "]: " + x3.nextDouble());
-            System.out.println("teamID[" + teamID[i] + "]: " + x3.nextDouble());
+//            System.out.println("teamID[" + teamID[i] + "]: " + scoreArray[i]);
+            System.out.println(realNames[i] + ": " + scoreArray[i]);
         }
 
-
-
-
-
-//        Element nameSearcher = doc1.getElementById("teams");
-//        System.out.println("nameSearcher: " + nameSearcher);
-//
-//        Element link = doc1.getElementById("team-3-name");
-//        System.out.println("link: " + link);
-//        for (int i = 1; i < 11; i++) {
-//            Element link2 = doc1.getElementById("team-" + i + "-name");
-//            System.out.println("link[" + i + "]: " + link2);
-//        }
 
     }
 
@@ -160,7 +196,7 @@ public class FF_Data_Automater {
 
         FF_Data_Automater test1 = new FF_Data_Automater();
 //        test1.inputOutputData();
-        test1.teamToRealName();
+        test1.outputScores();
 
 
     }
