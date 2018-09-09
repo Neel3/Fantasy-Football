@@ -189,6 +189,18 @@ public class FF_Data_Automater {
             System.out.println(realNames[i] + ": " + scoreArray[i]);
         }
 
+        // format for excel
+        System.out.println("Name\tOpponent\tPoints For\tPoints Against");
+        for (int i = 0; i < 10; i ++) {
+            if (i % 2 == 0) {
+                System.out.println(realNames[i] + "\t" + realNames[i+1] + "\t\t" + scoreArray[i] +
+                        "\t\t" + scoreArray[i+1]);
+            }
+            if (i % 2 != 0) {
+                System.out.println(realNames[i] + "\t" + realNames[i-1] + "\t\t" + scoreArray[i] +
+                        "\t\t" + scoreArray[i-1]);
+            }
+        }
 
     }
 
