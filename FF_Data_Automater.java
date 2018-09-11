@@ -1,7 +1,4 @@
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.hssf.usermodel.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
@@ -231,12 +228,12 @@ public class FF_Data_Automater {
         Export data to new tab for the week
          */
         // create new sheet per week
-        int week = 2;
+        int week = 1;
         HSSFSheet sheet1 = test2.createSheet("Week " + week);
 
         // create cells and rows
         HSSFRow rows[] = new HSSFRow[150];
-        HSSFCell cells[] = new HSSFCell[4];
+        HSSFCell cells[] = new HSSFCell[5];
         for (int i = 1; i < 11; i++) {
             rows[i] = sheet1.createRow(i);
             for (int j = 0; j < 4; j++) {
@@ -278,6 +275,10 @@ public class FF_Data_Automater {
         cells[3] = rows[0].createCell(3);
         cells[3].setCellValue("Points Against");
 
+        // autosize columns
+        for (int i = 0; i < 5; i++) {
+            sheet1.autoSizeColumn(i);
+        }
 
 //        // export to excel
 //        try {
@@ -302,34 +303,32 @@ public class FF_Data_Automater {
         int rowStart = ((week * 10) - 9);
         for (int i = rowStart; i < (rowStart + 10); i++) {
             rows[i] = sheetTotal.createRow(i);
-            for (int j = 0; j < 4; j++) {
+            for (int j = 0; j < 5; j++) {
                 cells[j] = rows[i].createCell(j);
             }
             // sort data into excel rows and columns
             int k = (i - ((week - 1) * 10));
-                // names
-                cells[0].setCellValue(realNames[(k - 1)]);
-                // opponents
-                if ((k - 1) % 2 != 0) {
-                    cells[1].setCellValue(realNames[(k - 1) - 1]);
-                }
-                if ((k - 1) % 2 == 0) {
-                    cells[1].setCellValue(realNames[(k - 1) + 1]);
-                }
-                // points for
-                cells[2].setCellValue(scoreArray[(k - 1)]);
-                // points against
-                if ((k - 1) % 2 != 0) {
-                    cells[3].setCellValue(scoreArray[(k - 1) - 1]);
-                }
-                if ((k - 1) % 2 == 0) {
-                    cells[3].setCellValue(scoreArray[(k - 1) + 1]);
-                }
+            // names
+            cells[0].setCellValue(realNames[(k - 1)]);
+            // opponents
+            if ((k - 1) % 2 != 0) {
+                cells[1].setCellValue(realNames[(k - 1) - 1]);
+            }
+            if ((k - 1) % 2 == 0) {
+                cells[1].setCellValue(realNames[(k - 1) + 1]);
+            }
+            // points for
+            cells[2].setCellValue(scoreArray[(k - 1)]);
+            // points against
+            if ((k - 1) % 2 != 0) {
+                cells[3].setCellValue(scoreArray[(k - 1) - 1]);
+            }
+            if ((k - 1) % 2 == 0) {
+                cells[3].setCellValue(scoreArray[(k - 1) + 1]);
+            }
+            // week
+            cells[4].setCellValue(week);
         }
-
-
-
-
 
 
         // export data to excel sheet
