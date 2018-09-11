@@ -216,24 +216,69 @@ public class FF_Data_Automater {
             }
         }
 
-        // export to excel
-            // import excel file
-//        HSSFWorkbook test2 = null;
-//        try {
-//            test2 = new HSSFWorkbook(new FileInputStream("D:\\Fantasy " +
-//                    "Football\\Analytics\\2018\\Cousins\\test1.xls"));
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-        HSSFWorkbook test2 = new HSSFWorkbook();
-        HSSFSheet sheet1 = test2.createSheet("java_sheet");
-        HSSFRow row0 = sheet1.createRow(1);
-        HSSFCell cell = row0.createCell(0);
-        cell.setCellValue("testing2");
+//        HSSFWorkbook test2 = new HSSFWorkbook();
+        // import excel file
+        HSSFWorkbook test2 = null;
+        try {
+            test2 = new HSSFWorkbook(new FileInputStream("D:\\Fantasy " +
+                    "Football\\Analytics\\2018\\Cousins\\Weekly_data_2018.xls"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+//        HSSFSheet sheet1 = test2.createSheet("java_sheet");
+
+        // create new sheet per week
+        int week = 3;
+        HSSFSheet sheet1 = test2.createSheet("Week " + week);
+
+        // create cells and rows
+        HSSFRow rows[] = new HSSFRow[11];
+        HSSFCell cells[] = new HSSFCell[4];
+        for (int i = 1; i < 11; i++) {
+            rows[i] = sheet1.createRow(i);
+            for (int j = 0; j < 4; j++) {
+                cells[j] = rows[i].createCell(j);
+            }
+
+            // sort data into excel rows and columns
+                // names
+                cells[0].setCellValue(realNames[(i-1)]);
+                // opponents
+                if ((i-1) % 2 != 0) {
+                    cells[1].setCellValue(realNames[(i-1) - 1]);
+                }
+                if ((i-1) % 2 == 0) {
+                    cells[1].setCellValue(realNames[(i-1) + 1]);
+                }
+                // points for
+                cells[2].setCellValue(scoreArray[(i-1)]);
+                // points against
+                if ((i-1) % 2 != 0) {
+                    cells[3].setCellValue(scoreArray[(i-1) - 1]);
+                }
+                if ((i-1) % 2 == 0) {
+                    cells[3].setCellValue(scoreArray[(i-1) + 1]);
+                }
+        }
+
+        // headers
+        rows[0] = sheet1.createRow(0);
+        for (int i = 0; i < 4; i++) {
+            cells[i] = rows[0].createCell(i);
+        }
+        cells[0] = rows[0].createCell(0);
+        cells[0].setCellValue("Name");
+        cells[1] = rows[0].createCell(1);
+        cells[1].setCellValue("Opponent");
+        cells[2] = rows[0].createCell(2);
+        cells[2].setCellValue("Points For");
+        cells[3] = rows[0].createCell(3);
+        cells[3].setCellValue("Points Against");
+
 
         try {
             test2.write(new FileOutputStream("D:\\Fantasy " +
-                    "Football\\Analytics\\2018\\Cousins\\test1.xls"));
+                    "Football\\Analytics\\2018\\Cousins\\Weekly_data_2018.xls"));
         } catch (IOException e) {
             e.printStackTrace();
         }
