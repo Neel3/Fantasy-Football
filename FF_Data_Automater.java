@@ -1,11 +1,12 @@
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.PrintStream;
+import java.io.*;
 import java.util.Scanner;
 
 //import javax.lang.model.util.Elements;
@@ -189,6 +190,19 @@ public class FF_Data_Automater {
             System.out.println(realNames[i] + ": " + scoreArray[i]);
         }
 
+        // store opponents into array
+        String opponentsArray[] = new String[10];
+        for (int i = 0; i < 10; i ++) {
+            if (i % 2 == 0) {
+                opponentsArray[i] = realNames[i+1];
+            }
+            if (i % 2 != 0) {
+                opponentsArray[i] = realNames[i-1];
+            }
+            System.out.println("opponentsArray[" + i + "]: " + opponentsArray[i]);
+        }
+
+
         // format for excel
         System.out.println("Name\tOpponent\tPoints For\tPoints Against");
         for (int i = 0; i < 10; i ++) {
@@ -202,6 +216,34 @@ public class FF_Data_Automater {
             }
         }
 
+        // export to excel
+            // import excel file
+//        HSSFWorkbook test2 = null;
+//        try {
+//            test2 = new HSSFWorkbook(new FileInputStream("D:\\Fantasy " +
+//                    "Football\\Analytics\\2018\\Cousins\\test1.xls"));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+        HSSFWorkbook test2 = new HSSFWorkbook();
+        HSSFSheet sheet1 = test2.createSheet("java_sheet");
+        HSSFRow row0 = sheet1.createRow(1);
+        HSSFCell cell = row0.createCell(0);
+        cell.setCellValue("testing2");
+
+        try {
+            test2.write(new FileOutputStream("D:\\Fantasy " +
+                    "Football\\Analytics\\2018\\Cousins\\test1.xls"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            test2.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     public static void main(String[] args) {
@@ -209,6 +251,14 @@ public class FF_Data_Automater {
         FF_Data_Automater test1 = new FF_Data_Automater();
 //        test1.inputOutputData();
         test1.outputScores();
+
+        // get the week from input
+        Scanner weekInput = new Scanner(System.in);
+        System.out.print("What week is it? ");
+        int week = weekInput.nextInt();
+
+        //excel rows
+        int rowStart = (week * 10) - 8;
 
 
     }
