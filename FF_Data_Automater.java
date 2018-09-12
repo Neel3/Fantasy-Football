@@ -97,7 +97,7 @@ public class FF_Data_Automater {
             }
         }
 
-        // Get scores from HTML file
+        // get scores from HTML file
         Elements docEle2 = doc1.select("div.Fz-lg");
         String docEleToString2 = docEle2.select("div.Fz-lg").text();
         Scanner docScanner2 = new Scanner(docEleToString2);
