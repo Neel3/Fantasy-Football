@@ -1,17 +1,22 @@
-# To Do:
+# README
 
-/Import (txt file)
+I used to manually enter the fantasy football league data into an excel file every week. After taking the introduction to programming class, learning the fundamentals of java, and a lot of research on my own time, I wrote this program to automate the process. All you have to do is copy and paste the page source of the fantasy football league site into notepad, save it as an HTML file, and this program will:
 
-/Export (standard output)
+1) Import the html file
+2) Filter the data
+3) Sort the data
+4) Output the data into the excel file
 
-/Export (txt file)
+Pictures are shown below. I set up the excel sheet to automatically calculate the rest of the stats. The data is then imported into Tableau, where I use it for data analysis. This league is private, so I cannot directly access the site using JSoup. My next goal is to learn how to create a program with log in credentials in order to directly get the data from the site.
 
--Change team names to people names
 
--Add wins, losses, ties (from record input)
+![Part of the HTML Source Code:](https://imgur.com/oMz192O)
 
--Export (excel)
 
--Folders (src, bin)
+![Excel workbook before the program is run](https://imgur.com/ZTsFMQq)
 
--Example screenshots (import data, export txt file, export excel file)
+
+![Excel workbook after the program is run](https://imgur.com/eG11fxy)
+
+
+![New tab created for the weekly data](https://imgur.com/uKcO6ct)
