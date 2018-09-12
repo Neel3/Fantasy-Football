@@ -5,7 +5,7 @@ I used to manually enter the fantasy football league data into an excel file eve
 1) Import the html file
 2) Filter the data
 3) Sort the data
-4) Output the data into the excel file
+4) Output the data into the excel file (it outputs the data into a total sheet containing data from every week, and it also creates a new sheet in the workbook to output the data just for that week)
 
 Pictures are shown below. I set up the excel sheet to automatically calculate the rest of the stats. The data is then imported into Tableau, where I use it for data analysis. This league is private, so I cannot directly access the site using JSoup. My next goal is to learn how to create a program with log in credentials in order to directly get the data from the site.
 
