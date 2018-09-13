@@ -12,7 +12,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class FF_Data_Automater {
+public class FFDataAutomater {
 
     public static void main(String[] args) {
 
