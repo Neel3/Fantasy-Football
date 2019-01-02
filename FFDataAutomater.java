@@ -1,7 +1,7 @@
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
@@ -12,7 +12,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class FFDataAutomater {
+public class FF_Data_Automater_NEW {
 
     public static void main(String[] args) {
 
@@ -127,10 +127,10 @@ public class FFDataAutomater {
          */
 
         // open excel workbook
-        HSSFWorkbook workbook1 = null;
+        XSSFWorkbook workbook2 = null;
         try {
-            workbook1 = new HSSFWorkbook(new FileInputStream("D:\\Fantasy " +
-                    "Football\\Analytics\\2018\\Cousins\\Weekly_data_2018.xls"));
+            workbook2 = new XSSFWorkbook(new FileInputStream("D:\\Fantasy " +
+                    "Football\\Analytics\\2018\\Cousins\\Weekly_data_2018_New.xlsx"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -139,11 +139,11 @@ public class FFDataAutomater {
         Scanner weekInput = new Scanner(System.in);
         System.out.print("Enter the week number: ");
         int week = weekInput.nextInt();
-        HSSFSheet sheet1 = workbook1.createSheet("Week " + week);
+        XSSFSheet sheet1 = workbook2.createSheet("Week " + week);
 
         // create cells and rows
-        HSSFRow rows[] = new HSSFRow[150];
-        HSSFCell cells[] = new HSSFCell[5];
+        XSSFRow rows[] = new XSSFRow[150];
+        XSSFCell cells[] = new XSSFCell[5];
         for (int i = 1; i < 11; i++) {
             rows[i] = sheet1.createRow(i);
             for (int j = 0; j < 4; j++) {
@@ -194,7 +194,7 @@ public class FFDataAutomater {
          */
 
         // import totals sheet from excel file
-        HSSFSheet sheetTotal = workbook1.getSheetAt(0);
+        XSSFSheet sheetTotal = workbook2.getSheetAt(0);
 
         // create cells and rows
         int rowStart = ((week * 10) - 9);
@@ -229,13 +229,13 @@ public class FFDataAutomater {
 
         // export data to excel sheet
         try {
-            workbook1.write(new FileOutputStream("D:\\Fantasy " +
-                    "Football\\Analytics\\2018\\Cousins\\Weekly_data_2018.xls"));
+            workbook2.write(new FileOutputStream("D:\\Fantasy " +
+                    "Football\\Analytics\\2018\\Cousins\\Weekly_data_2018_New.xlsx"));
         } catch (IOException e) {
             e.printStackTrace();
         }
         try {
-            workbook1.close();
+            workbook2.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
